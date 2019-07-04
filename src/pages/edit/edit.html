@@ -1,0 +1,31 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <!-- <ion-buttons start>
+        <button ion-button icon-only (click)="dismiss()">
+          <ion-icon name="search"></ion-icon>
+        </button>
+      </ion-buttons> -->
+
+    <ion-title style="text-align: center">Update </ion-title>
+    <button slot="end">
+      <button (click)="delete()">
+        <ion-icon name="trash"></ion-icon>
+      </button>
+    </button>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+
+  <ion-item *ngIf="students">
+    <ion-label stacked> Name</ion-label>
+    <ion-input type="text" [(ngModel)]="students.name"></ion-input>
+  </ion-item>
+
+  <button ion-button class="btn-add" (click)="update()">Edit Student</button>
+
+</ion-content>

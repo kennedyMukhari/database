@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-navbar>
+  <ion-searchbar
+   [hidden]="isHidden"
+   (ionInput)="getItems($event)"
+   (ionClear)="isCancel()"
+   >
+  
+  </ion-searchbar>
+
+
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <ion-item *ngFor="let student of students">
+          <ion-thumbnail item-start >
+            <img src="https://blogs.forbes.com/zackomalleygreenburg/files/2017/06/0606_celeb-the-weekend-4_1200x675-1200x675.jpg">
+          </ion-thumbnail>
+          <h2> {{ student.name }}</h2>
+          <p>Hayao Miyazaki • 1988</p>
+          <button   (click)="editStudent(student.id)" ion-button clear item-end>View</button>
+          <button slot="end">
+            <button (click)="delete(student.id)">
+              <ion-icon name="trash"></ion-icon>
+            </button>
+          </button>
+        </ion-item>
+      </ion-list>
+  <!-- <ion-list>
+    <ion-item *ngFor="let student of students">
+
+      {{ student.name }}
+
+    </ion-item>
+  </ion-list> -->
+
+  <ion-fab bottom right>
+    <button ion-fab >
+      <ion-icon name='apps'></ion-icon>
+    </button>
+    <ion-fab-list side="top">
+      <button (click)="addStudents()" ion-fab><ion-icon  name="add"></ion-icon></button>
+      <button  (click)="showFilter()" ion-fab><ion-icon name="search"></ion-icon></button>
+      <button ion-fab><ion-icon name="edit"></ion-icon></button>
+      
+    </ion-fab-list>
+  </ion-fab>
+
+</ion-content>
